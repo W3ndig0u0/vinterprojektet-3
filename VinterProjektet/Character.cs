@@ -12,6 +12,15 @@ namespace VinterProjektet
     protected int y;
     protected int x;
 
+    // !Du behöver se till så att alla characters som skapas får en egen inventory.
+
+    // !AddToInventory ska lägga in items i karaktärens inventory-instans.På samma sätt behöver RemoveFromInventory, UseItem och GetItemInfo anropa motsvarande metoder i inventory-instansen.
+
+    // !Move ska lägga till/ta bort från karaktärens x- och y-värden, medan SetPosition anger exakt position som karaktären ska få.
+
+    // !Båda versionerna av UseItem anropar inventory-instansens UseItem.metod.I versionen utan Character-parameter så är det “this”, alltså karaktären själv, som är target.
+
+
     public void AddToInventory(Item item)
     {
 
