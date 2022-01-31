@@ -5,12 +5,22 @@ namespace VinterProjektet
   public class Character
   {
     protected string name;
-    protected Inventory inventory;
+
     protected int hp;
     protected int mp;
     protected int strength;
+
     protected int y;
     protected int x;
+
+
+    protected Inventory inventory;
+
+    public void Run()
+    {
+      //? instance program class
+      inventory = new Inventory();
+    }
 
     // !Du behöver se till så att alla characters som skapas får en egen inventory.
 
@@ -31,7 +41,7 @@ namespace VinterProjektet
 
     }
 
-    public void UseItem(int n, Character target)
+    public void UseItemOn(int n, Character target)
     {
 
     }
@@ -43,7 +53,7 @@ namespace VinterProjektet
 
     public int GetInventoryLength()
     {
-      return
+
     }
 
     public void Move(int xMove, int yMove)

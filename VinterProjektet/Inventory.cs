@@ -12,18 +12,20 @@ namespace VinterProjektet
 
     void Add(Item item)
     {
-        
+      //? Lägger en instans av Item i listan.
       inventoryList.Add(item);
     }
 
     void Remove(int n)
     {
+      //? Tar bort föremålet i den exakta positionen i Listan.
       inventoryList.RemoveAt(n);
     }
 
     string GetItemInfo(int n)
     {
-
+      string ItemInfo = inventoryList[n].ToString();
+      return ItemInfo;
     }
 
     void UseItem(int n, Character c)
@@ -33,7 +35,8 @@ namespace VinterProjektet
 
     int GetLength()
     {
-
+      int amountInventory = inventoryList.Count;
+      return amountInventory;
     }
 
   }

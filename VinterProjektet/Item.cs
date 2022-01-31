@@ -11,7 +11,6 @@ namespace VinterProjektet
 
     // !Item-klassen och dess Use-metod kan med fördel vara abstrakta.
 
-
     protected string name;
 
     public string GetInfo()
