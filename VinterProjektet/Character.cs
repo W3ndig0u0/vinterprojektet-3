@@ -33,7 +33,7 @@ namespace VinterProjektet
 
     public void AddToInventory(Item item)
     {
-
+      inventor
     }
 
     public void RemoveFromInventory(Item item)
