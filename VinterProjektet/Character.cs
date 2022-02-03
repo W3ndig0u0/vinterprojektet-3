@@ -26,7 +26,6 @@ namespace VinterProjektet
     }
 
     protected int x;
-
     public int X   //? property
     {
       get { return x; }   //? GetX() methoden
@@ -34,7 +33,6 @@ namespace VinterProjektet
     }
 
     protected int y;
-
     public int Y //? property
     {
       get { return y; } //?GetY()
@@ -49,7 +47,19 @@ namespace VinterProjektet
     }
 
     protected int mp;
+    protected int Mp
+    {
+      get { return mp; }
+      set { mp = value; }
+    }
+
     protected int strength;
+    public int Strength
+    {
+      get { return strength; }
+      set { strength = value; }
+    }
+
 
     protected Inventory inventory;
 
@@ -59,10 +69,6 @@ namespace VinterProjektet
       inventory = new Inventory();
     }
 
-
-    // !Du behöver se till så att alla characters som skapas får en egen inventory.
-
-    // !Båda versionerna av UseItem anropar inventory-instansens UseItem.metod.I versionen utan Character-parameter så är det “this”, alltså karaktären själv, som är target.
 
     // !AddToInventory ska lägga in items i karaktärens inventory-instans. 
     public void AddToInventory(Item item)
@@ -114,28 +120,6 @@ namespace VinterProjektet
     {
       target.hp -= strength;
     }
-
-
-    // public int GetX()
-    // {
-    //   return x;
-    // }
-
-    // public int GetY()
-    // {
-    //   return y;
-    // }
-
-    // public int GetHp()
-    // {
-    //   return hp;
-    // }
-
-
-    // public int ModifyHp(int amount)
-    // {
-    //   return
-    // }
   }
 
 }
