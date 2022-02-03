@@ -24,6 +24,7 @@ namespace VinterProjektet
 
     public string GetItemInfo(int n)
     {
+      //? Kollar infomationen i positionen n på Listan
       string ItemInfo = inventoryList[n].ToString();
       return ItemInfo;
     }

@@ -17,6 +17,11 @@ namespace VinterProjektet
     public abstract void Use(Character target);
 
     protected string name;
+    public string Name   //? property
+    {
+      get { return name; }
+      set { name = value; }
+    }
 
     public string GetInfo()
     {
