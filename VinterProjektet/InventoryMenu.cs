@@ -37,7 +37,6 @@ namespace VinterProjektet
 
         case 2:
           Console.WriteLine($"Ta bort saker i Listan.");
-
           Console.WriteLine("inventory har : " + character.GetInventoryLength() + " platser tagna.");
           Console.WriteLine($"vilken nummer i inventory Vill du ta bort?");
           character.RemoveFromInventory(int.Parse(Console.ReadLine()));
@@ -71,6 +70,5 @@ namespace VinterProjektet
           break;
       }
     }
-
   }
 }

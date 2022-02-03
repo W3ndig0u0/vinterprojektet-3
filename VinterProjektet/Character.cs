@@ -17,10 +17,10 @@ namespace VinterProjektet
 
 
     ConsoleColor color;
-    
+
     public ConsoleColor Color   //? property
     {
-      
+
       get { return color; }   //? GetX() methoden
       set { color = value; }
     }

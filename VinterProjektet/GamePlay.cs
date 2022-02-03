@@ -24,6 +24,7 @@ namespace VinterProjektet
 
         menuChoisesString = Console.ReadLine();
       }
+
       inventoryMenu.MenuSwitch(menuChoises);
     }
   }
