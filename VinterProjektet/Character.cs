@@ -20,6 +20,7 @@ namespace VinterProjektet
     
     public ConsoleColor Color   //? property
     {
+      
       get { return color; }   //? GetX() methoden
       set { color = value; }
     }
