@@ -2,11 +2,13 @@
 
 namespace VinterProjektet
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      //? Koden körs Character Run methoden
+      new Character().Run();
+      Console.ReadLine();
     }
+  }
 }

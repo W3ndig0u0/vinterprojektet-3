@@ -10,30 +10,30 @@ namespace VinterProjektet
 
     List<Item> inventoryList = new List<Item>();
 
-    void Add(Item item)
+    public void Add(Item item)
     {
       //? Lägger en instans av Item i listan.
       inventoryList.Add(item);
     }
 
-    void Remove(int n)
+    public void Remove(int n)
     {
       //? Tar bort föremålet i den exakta positionen i Listan.
       inventoryList.RemoveAt(n);
     }
 
-    string GetItemInfo(int n)
+    public string GetItemInfo(int n)
     {
       string ItemInfo = inventoryList[n].ToString();
       return ItemInfo;
     }
 
-    void UseItem(int n, Character c)
+    public void UseItem(int n, Character c)
     {
 
     }
 
-    int GetLength()
+    public int GetLength()
     {
       int amountInventory = inventoryList.Count;
       return amountInventory;

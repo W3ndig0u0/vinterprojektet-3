@@ -1,0 +1,15 @@
+/Users/Administrator/Documents/GitHub/vinterprojektet-3/VinterProjektet/bin/Debug/net5.0/VinterProjektet.deps.json
+/Users/Administrator/Documents/GitHub/vinterprojektet-3/VinterProjektet/bin/Debug/net5.0/VinterProjektet.runtimeconfig.json
+/Users/Administrator/Documents/GitHub/vinterprojektet-3/VinterProjektet/bin/Debug/net5.0/VinterProjektet.runtimeconfig.dev.json
+/Users/Administrator/Documents/GitHub/vinterprojektet-3/VinterProjektet/bin/Debug/net5.0/VinterProjektet.dll
+/Users/Administrator/Documents/GitHub/vinterprojektet-3/VinterProjektet/bin/Debug/net5.0/ref/VinterProjektet.dll
+/Users/Administrator/Documents/GitHub/vinterprojektet-3/VinterProjektet/bin/Debug/net5.0/VinterProjektet.pdb
+/Users/Administrator/Documents/GitHub/vinterprojektet-3/VinterProjektet/obj/Debug/net5.0/VinterProjektet.csproj.AssemblyReference.cache
+/Users/Administrator/Documents/GitHub/vinterprojektet-3/VinterProjektet/obj/Debug/net5.0/VinterProjektet.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Administrator/Documents/GitHub/vinterprojektet-3/VinterProjektet/obj/Debug/net5.0/VinterProjektet.AssemblyInfoInputs.cache
+/Users/Administrator/Documents/GitHub/vinterprojektet-3/VinterProjektet/obj/Debug/net5.0/VinterProjektet.AssemblyInfo.cs
+/Users/Administrator/Documents/GitHub/vinterprojektet-3/VinterProjektet/obj/Debug/net5.0/VinterProjektet.csproj.CoreCompileInputs.cache
+/Users/Administrator/Documents/GitHub/vinterprojektet-3/VinterProjektet/obj/Debug/net5.0/VinterProjektet.dll
+/Users/Administrator/Documents/GitHub/vinterprojektet-3/VinterProjektet/obj/Debug/net5.0/ref/VinterProjektet.dll
+/Users/Administrator/Documents/GitHub/vinterprojektet-3/VinterProjektet/obj/Debug/net5.0/VinterProjektet.pdb
+/Users/Administrator/Documents/GitHub/vinterprojektet-3/VinterProjektet/obj/Debug/net5.0/VinterProjektet.genruntimeconfig.cache
