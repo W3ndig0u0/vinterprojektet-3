@@ -15,11 +15,11 @@ namespace VinterProjektet
       promt = promt.Replace("@", System.Environment.NewLine);
 
       List<string> menuOptions = new List<string>() { "Attack", "Defend", "Check Inventory", "heal", "Quit Game" };
-      MenuFunction startMenu = new MenuFunction(promt, menuOptions);
+      MenuFunction menu = new MenuFunction(promt, menuOptions);
 
       // ?Få tillbaka vad SelectedIndex är
-      int selectedIndex = startMenu.Run();
-      startMenu.Run();
+      int selectedIndex = menu.Run();
+      menu.Run();
 
       switch (selectedIndex)
       {
@@ -32,7 +32,6 @@ namespace VinterProjektet
           break;
 
         case 2:
-          // ?Inventory
           Console.WriteLine("Inventory.");
           break;
 
@@ -54,6 +53,7 @@ namespace VinterProjektet
     {
       hero.Name = "Player";
       hero.Hp = 1500;
+      hero.Inventory();
 
       enemy.Name = "enemy1";
       enemy.Hp = 2000;

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace VinterProjektet
 {
@@ -7,61 +8,63 @@ namespace VinterProjektet
     Character character = new Character();
     Weapons weapon = new Weapons();
 
-    public void StartMenuText()
+    public void InventoryItems()
     {
-      Console.WriteLine("Välj vad du vill göra");
-      Console.WriteLine();
+      string promt = "What do you want to do?@";
+      promt = promt.Replace("@", System.Environment.NewLine);
 
-      Console.WriteLine("1. Lägg saker i listan");
-      Console.WriteLine("2. Ta bort saker i Listan");
-      Console.WriteLine("3. Använd saker i listan");
-      Console.WriteLine("4. Få Listans Count");
-      Console.WriteLine("5. kolla listan");
+      List<string> menuOptions = new List<string>() { "Use Something", "More Info about an Item", "Throw something", "Go Back to the Game" };
+      MenuFunction inventoryItemsMenu = new MenuFunction(promt, menuOptions);
 
-      Console.WriteLine("6. Quit");
+      // ?Få tillbaka vad SelectedIndex är
+      int selectedIndex = inventoryItemsMenu.Run();
     }
 
-    public void MenuSwitch(int MenuNr)
+    public void InventoryQuestion()
     {
-      switch (MenuNr)
+      string promt = "What do you want to do?@";
+      promt = promt.Replace("@", System.Environment.NewLine);
+
+      List<string> menuOptions = new List<string>() { "Use Something", "More Info about an Item", "Throw something", "Go Back to the Game" };
+      MenuFunction menu = new MenuFunction(promt, menuOptions);
+
+      // ?Få tillbaka vad SelectedIndex är
+      int selectedIndex = menu.Run();
+      menu.Run();
+
+      switch (selectedIndex)
       {
+        // case 1:
+        //   Console.WriteLine($"Lägg något i listan");
+        //   character.Run();
+        //   character.AddToInventory(weapon);
+        //   new Inventory().Add(weapon);
+        //   Console.WriteLine(character.GetInventoryLength());
+        //   Console.ReadLine();
+        //   break;
+
         case 1:
-          Console.WriteLine($"Lägg något i listan");
-          character.Run();
-          character.AddToInventory(weapon);
-          new Inventory().Add(weapon);
-          Console.WriteLine(character.GetInventoryLength());
-          Console.ReadLine();
-          break;
-
-        case 2:
-          Console.WriteLine($"Ta bort saker i Listan.");
-          Console.WriteLine("inventory har : " + character.GetInventoryLength() + " platser tagna.");
-          Console.WriteLine($"vilken nummer i inventory Vill du ta bort?");
-          character.RemoveFromInventory(int.Parse(Console.ReadLine()));
-          Console.ReadLine();
-          break;
-
-        case 3:
           Console.WriteLine($"Använd saker i listan");
 
           Console.ReadLine();
           break;
 
-        case 4:
-          Console.WriteLine("Få Listans Count");
-          Console.WriteLine(character.GetInventoryLength());
-          break;
-
-        case 5:
+        case 2:
           Console.WriteLine("kolla saken i listan");
           Console.WriteLine("inventory har : " + character.GetInventoryLength() + " platser tagna.");
           Console.WriteLine($"vilken nummer i inventory Vill du kolla itemet på?");
           character.GetItemInfo(int.Parse(Console.ReadLine()));
           break;
 
-        case 6:
-          Environment.Exit(0);
+        case 3:
+          Console.WriteLine("inventory har : " + character.GetInventoryLength() + " platser tagna.");
+          Console.WriteLine($"What do you want to throw away?");
+          character.RemoveFromInventory(int.Parse(Console.ReadLine()));
+          Console.ReadLine();
+          break;
+
+        case 4:
+          new GamePlay().Game();
           break;
 
         default:

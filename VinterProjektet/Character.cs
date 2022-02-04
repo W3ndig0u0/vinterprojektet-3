@@ -36,7 +36,7 @@ namespace VinterProjektet
 
     protected Inventory inventory;
 
-    public void Run()
+    public void Inventory()
     {
       //? instance program class
       inventory = new Inventory();

@@ -18,11 +18,11 @@ namespace VinterProjektet
       promt = promt.Replace("@", System.Environment.NewLine);
 
       List<string> menuOptions = new List<string>() { "Start", "About", "Quit" };
-      MenuFunction startMenu = new MenuFunction(promt, menuOptions);
+      MenuFunction menu = new MenuFunction(promt, menuOptions);
 
       // ?Få tillbaka vad SelectedIndex är
-      int selectedIndex = startMenu.Run();
-      startMenu.Run();
+      int selectedIndex = menu.Run();
+      menu.Run();
 
       switch (selectedIndex)
       {
