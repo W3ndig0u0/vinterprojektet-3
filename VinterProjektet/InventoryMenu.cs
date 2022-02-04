@@ -7,13 +7,14 @@ namespace VinterProjektet
   {
     Character character = new Character();
     Weapons weapon = new Weapons();
+    Inventory inventory = new Inventory();
 
     public void InventoryItems()
     {
       string promt = "What do you want to do?@";
       promt = promt.Replace("@", System.Environment.NewLine);
 
-      List<string> menuOptions = new List<string>() { "Use Something", "More Info about an Item", "Throw something", "Go Back to the Game" };
+      List<string> menuOptions = inventory.InventoryList;
       MenuFunction inventoryItemsMenu = new MenuFunction(promt, menuOptions);
 
       // ?Få tillbaka vad SelectedIndex är

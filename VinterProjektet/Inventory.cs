@@ -9,6 +9,11 @@ namespace VinterProjektet
     //! Bör ha någon form av felkoll så att spelet inte krashar när man försöker använda eller hämta information om ett item som inte finns
 
     List<Item> inventoryList = new List<Item>();
+    public List<Item> InventoryList
+    {
+      get { return inventoryList; }
+      set { inventoryList = value; }
+    }
 
     public void Add(Item item)
     {
