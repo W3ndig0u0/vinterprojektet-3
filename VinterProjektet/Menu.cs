@@ -25,6 +25,12 @@ namespace VinterProjektet
       // !Skriver ut allt i listan
       for (int i = 0; i < MenuOptions.Count; i++)
       {
+
+
+        if (i == SelectedIndex)
+        {
+
+        }
         string currentOptions = MenuOptions[i];
         Console.WriteLine("<< " + currentOptions + " >>");
       }
