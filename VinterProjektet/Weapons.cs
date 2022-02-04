@@ -8,8 +8,8 @@ namespace VinterProjektet
     {
       Name = "Sword";
       Console.WriteLine("The sword says: wee wee");
-      Console.WriteLine("And your strength is increased by 10 points");
-      target.Strength += 10;
+      Console.WriteLine("And your strength is increased by 100 points");
+      target.Strength += 100;
     }
 
   }

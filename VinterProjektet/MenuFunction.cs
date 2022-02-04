@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace VinterProjektet
 {
-  public class Menu
+  public class MenuFunction
   {
     // !Menyn ska hålla koll på indexen i Listan
     int SelectedIndex;
@@ -11,7 +11,7 @@ namespace VinterProjektet
     string Promt;
 
 
-    public Menu(string promt, List<string> menuOptions)
+    public MenuFunction(string promt, List<string> menuOptions)
     {
       Promt = promt;
       MenuOptions = menuOptions;
@@ -61,13 +61,13 @@ namespace VinterProjektet
 
         //? ConsoelkeyInfo returneras när man gör en Readkey, detta låter oss se vad för knapp man track på
         ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+
         keyPressed = keyInfo.Key;
 
         //? Uppdaterar SelectedIndex baserat på vad användaren trycker.
 
         //?Vill inte se vad spelaren skriver, bara om en knapp trycks
         //? så att programmet kan se om det är en av menyn kontroll knapparna.
-
         if (keyPressed == ConsoleKey.UpArrow)
         {
           SelectedIndex--;

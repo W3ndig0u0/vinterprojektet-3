@@ -4,24 +4,7 @@ namespace VinterProjektet
 {
   public class Character
   {
-    protected string name;
-
     //? Istället för  en method för get används propertys.
-
-    protected int x;
-    public int X   //? property
-    {
-      get { return x; }   //? GetX() methoden
-      set { x = value; }
-    }
-
-    protected int y;
-    public int Y //? property
-    {
-      get { return y; } //?GetY()
-      set { y = value; }
-    }
-
     protected int hp;
     public int Hp //? property
     {
@@ -29,12 +12,20 @@ namespace VinterProjektet
       set { hp = value; } //?ModifyHp()
     }
 
-    protected int mp;
-    protected int Mp
+    protected string name;
+    public string Name
     {
-      get { return mp; }
-      set { mp = value; }
+      get { return name; }
+      set { name = value; }
     }
+
+    // !Används inte nu, kanske kostar postions mp? idk
+    // protected int mp;
+    // protected int Mp
+    // {
+    //   get { return mp; }
+    //   set { mp = value; }
+    // }
 
     protected int strength;
     public int Strength
@@ -42,7 +33,6 @@ namespace VinterProjektet
       get { return strength; }
       set { strength = value; }
     }
-
 
     protected Inventory inventory;
 
@@ -85,10 +75,65 @@ namespace VinterProjektet
       return inventory.GetLength();
     }
 
+
+    public void heal(Character target)
+    {
+      Random rand = new Random();
+      int healing;
+      healing = rand.Next(100, 150);
+      Hp += healing;
+      Console.WriteLine("The " + this.Name + " uses a Potion!");
+      Console.WriteLine("The " + this.Name + " heals himself for " + healing + " Points");
+      Console.WriteLine();
+    }
+
+    // ?Får en random attack
+    public void GetAttack(int baseStrength)
+    {
+      Random rand = new Random();
+      Strength = rand.Next(200, 300);
+      Strength += baseStrength;
+    }
+
+    // ?50/50 om man lyckas defenda
+    public void Defend(Character target)
+    {
+      Random rand = new Random();
+      int defendChance = rand.Next(0, 100);
+
+      if (defendChance > 50)
+      {
+        Console.WriteLine("The " + this.Name + " Succsessfuly defended himself!");
+        Console.WriteLine();
+        target.strength /= 3;
+      }
+      else
+      {
+        Console.WriteLine("The " + this.Name + " fricked up and took extra damage!");
+        Console.WriteLine();
+        target.strength *= 2;
+      }
+    }
+
+    // ?Attacking
     public void Attack(Character target)
     {
-      target.hp -= strength;
+      Random rand = new Random();
+      int hitChance = rand.Next(0, 100);
+      if (hitChance > 50)
+      {
+        Console.WriteLine("The " + this.Name + " attacks!");
+        target.Hp -= Strength;
+        Console.WriteLine("The " + target.Name + "loses " + Strength + "hp");
+        Console.WriteLine();
+      }
+      else
+      {
+        Console.WriteLine("The " + this.Name + " missed!");
+        Console.WriteLine();
+      }
     }
+
   }
 
 }

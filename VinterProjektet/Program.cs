@@ -6,12 +6,7 @@ namespace VinterProjektet
   {
     static void Main(string[] args)
     {
-      //? Koden kör Character Run methoden
-      // GamePlay game = new GamePlay();
-      // game.Run();
-
-      Game startGame = new Game();
-      startGame.Start();
+      new StartMenu().Start();
     }
   }
 }
