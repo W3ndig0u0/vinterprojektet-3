@@ -7,23 +7,6 @@ namespace VinterProjektet
     protected string name;
 
     //? Istället för  en method för get används propertys.
-    // ?Detta är spelarens karaktär
-    char characterSymbol;
-    public char CharacterSymbol   //? property
-    {
-      get { return characterSymbol; }   //? GetX() methoden
-      set { characterSymbol = value; }
-    }
-
-
-    ConsoleColor color;
-
-    public ConsoleColor Color   //? property
-    {
-
-      get { return color; }   //? GetX() methoden
-      set { color = value; }
-    }
 
     protected int x;
     public int X   //? property
@@ -87,7 +70,6 @@ namespace VinterProjektet
       inventory.UseItem(n, target);
     }
 
-    // !Hur ska jag använda UseItem med bara n?
     public void UseItem(int n)
     {
       inventory.UseItem(n, this);
@@ -102,19 +84,6 @@ namespace VinterProjektet
     {
       return inventory.GetLength();
     }
-
-    // !Move ska lägga till/ta bort från karaktärens x- och y-värden
-    public void Move(int xMove, int yMove)
-    {
-
-    }
-
-    // ! SetPosition anger exakt position som karaktären ska få.
-    public void SetPosition(int xPos, int yPos)
-    {
-      new Position().PrintOnPosition(xPos, yPos, this, ConsoleColor.Cyan);
-    }
-
 
     public void Attack(Character target)
     {

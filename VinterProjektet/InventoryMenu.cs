@@ -29,7 +29,6 @@ namespace VinterProjektet
           Console.WriteLine($"Lägg något i listan");
           character.Run();
           character.AddToInventory(weapon);
-          weapon.Name = Console.ReadLine();
           new Inventory().Add(weapon);
           Console.WriteLine(character.GetInventoryLength());
           Console.ReadLine();
