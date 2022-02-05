@@ -39,7 +39,7 @@ namespace VinterProjektet
           break;
 
         case 2:
-          new InventoryMenu().InventoryQuestion();
+          new InventoryMenu().InventoryListShow(hero);
           break;
 
         case 3:

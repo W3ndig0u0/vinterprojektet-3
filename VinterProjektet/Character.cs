@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace VinterProjektet
 {
@@ -51,11 +52,17 @@ namespace VinterProjektet
 
 
     protected Inventory inventory;
+    public List<Item> Items = new List<Item>();
 
     public void Inventory()
     {
       //? instance program class
       inventory = new Inventory();
+    }
+
+    public List<Item> GetInventoryList()
+    {
+      return Items = inventory.GetInventoryList();
     }
 
     public void ShowInventory()

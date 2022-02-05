@@ -10,6 +10,11 @@ namespace VinterProjektet
 
     List<Item> inventoryList = new List<Item>();
 
+    public List<Item> GetInventoryList()
+    {
+      return inventoryList;
+    }
+
     // ?returnerar baserat på listan
     public void ShowInventory()
     {
@@ -20,9 +25,9 @@ namespace VinterProjektet
 
       else
       {
-        foreach (Item item in inventoryList)
+        for (int i = 0; i < inventoryList.Count; i++)
         {
-          Console.WriteLine("The " + item.Name);
+          Console.WriteLine("The " + inventoryList[i].Name);
         }
       }
     }

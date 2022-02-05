@@ -6,15 +6,23 @@ namespace VinterProjektet
   public class InventoryMenu
   {
     // !Statsen ska komma från Gameplay
-    Character character = new Character(1500, "player", 10);
 
-    public void InventoryListShow()
+    public void InventoryListShow(Character character)
     {
-      string promt = "What item do you want to do more with?@";
+      if (character.GetInventoryLength() != 0)
+      {
+        Console.WriteLine("HEJSAN");
+      }
+      character.GetInventoryLength();
+
+      string promt = "Your items: @You have " + character.GetInventoryLength() + " items.";
       promt = promt.Replace("@", System.Environment.NewLine);
 
-      // List<string> menuOptions = 
-character.ShowInventory()
+      List<string> menuOptions = new List<string>();
+      foreach (Item item in character.Items)
+      {
+        menuOptions.Add(item.Name);
+      }
 
       MenuFunction menu = new MenuFunction(promt, menuOptions);
 
@@ -25,15 +33,19 @@ character.ShowInventory()
       switch (selectedIndex)
       {
         case 0:
+          InventoryQuestion(character, selectedIndex);
           break;
 
         case 1:
+          InventoryQuestion(character, selectedIndex);
           break;
 
         case 2:
+          InventoryQuestion(character, selectedIndex);
           break;
 
         case 3:
+          InventoryQuestion(character, selectedIndex);
           break;
 
         default:
@@ -42,11 +54,10 @@ character.ShowInventory()
       }
     }
 
-    public void InventoryQuestion()
+    public void InventoryQuestion(Character character, int itemListIndex)
     {
-      string promt = "What do you want to do?@?";
+      string promt = "What do you want to do?@";
       promt = promt.Replace("@", System.Environment.NewLine);
-      // promt = promt.Replace("?", character.ShowInventory());
 
       List<string> menuOptions = new List<string>() { "Use Something", "More Info about an Item", "Throw something", "Go Back to the Game" };
       MenuFunction menu = new MenuFunction(promt, menuOptions);
