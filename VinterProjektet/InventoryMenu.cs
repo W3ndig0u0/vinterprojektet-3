@@ -13,7 +13,9 @@ namespace VinterProjektet
       string promt = "What item do you want to do more with?@";
       promt = promt.Replace("@", System.Environment.NewLine);
 
-      List<string> menuOptions = 
+      // List<string> menuOptions = 
+character.ShowInventory()
+
       MenuFunction menu = new MenuFunction(promt, menuOptions);
 
       // ?Få tillbaka vad SelectedIndex är
