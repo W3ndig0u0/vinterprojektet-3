@@ -58,9 +58,9 @@ namespace VinterProjektet
       inventory = new Inventory();
     }
 
-    public string ShowInventory()
+    public void ShowInventory()
     {
-      return inventory.ShowInventory();
+      inventory.ShowInventory();
     }
 
     // !AddToInventory ska lägga in items i karaktärens inventory-instans. 
@@ -92,7 +92,8 @@ namespace VinterProjektet
 
     public int GetInventoryLength()
     {
-      return inventory.GetLength();
+      int amount = inventory.GetLength();
+      return amount;
     }
 
 
