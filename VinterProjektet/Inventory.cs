@@ -54,6 +54,7 @@ namespace VinterProjektet
 
     public void UseItem(int n, Character target)
     {
+      // !Anänder saken som har indexen n
       // Weapons.Use(target);
     }
 

@@ -52,7 +52,21 @@ namespace VinterProjektet
 
 
     protected Inventory inventory;
-    public List<Item> Items = new List<Item>();
+
+    List<Item> items = new List<Item>();
+    public List<Item> Items
+    {
+      get { return items; }
+      set { items = value; }
+    }
+
+    List<string> itemsString = new List<string>();
+    public List<string> ItemsString
+    {
+      get { return itemsString; }
+      set { itemsString = value; }
+    }
+
 
     public void Inventory()
     {
@@ -118,7 +132,7 @@ namespace VinterProjektet
       Random rand = new Random();
       int defendChance = rand.Next(0, 100);
 
-      if (defendChance > 50)
+      if (defendChance > 70)
       {
         Console.WriteLine("The " + this.Name + " Succsessfuly defended himself!");
         Console.WriteLine();

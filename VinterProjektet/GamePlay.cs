@@ -5,10 +5,8 @@ namespace VinterProjektet
 {
   public class GamePlay
   {
-    InventoryMenu inventoryMenu = new InventoryMenu();
     Character hero = new Character(1500, "player", 20);
     Character enemy = new Character(2000, "enemy1", 20);
-
     HealPotions healPotions = new HealPotions("Healpotions", 1);
     PoisonPotion poisonPotion = new PoisonPotion("PoisonPotion", 1);
     Weapons sword = new Weapons("Weapons", 1);
@@ -17,6 +15,7 @@ namespace VinterProjektet
 
     void DisplayChoices()
     {
+
       List<Item> Items = new List<Item>() { healPotions, poisonPotion, sword };
       string promt = "You are facing " + enemy.Name + "!@@************************************************@You have " + hero.Hp + "hp. @The " + enemy.Name + " has " + enemy.Hp + "hp. @************************************************@";
       promt = promt.Replace("@", System.Environment.NewLine);
@@ -43,6 +42,10 @@ namespace VinterProjektet
           break;
 
         case 3:
+          // !Lägg detta när man vinner över en monster
+          // !Lägg random monster varje gång
+          // !Lägg random item som man får
+          // !Gör flera sub karaktäerer
           Console.WriteLine(Items[0].Name + " Level: " + Items[0].Level + " got added to your inventory.");
           hero.AddToInventory(Items[0]);
           Console.WriteLine("you have now " + hero.GetInventoryLength() + " things on your inventory.");

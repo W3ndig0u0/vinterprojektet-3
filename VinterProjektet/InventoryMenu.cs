@@ -5,25 +5,17 @@ namespace VinterProjektet
 {
   public class InventoryMenu
   {
-    // !Statsen ska komma från Gameplay
-
+    // ?Karaktär instansen kommer från Gameplay
     public void InventoryListShow(Character character)
     {
-      if (character.GetInventoryLength() != 0)
-      {
-        Console.WriteLine("HEJSAN");
-      }
       character.GetInventoryLength();
 
       string promt = "Your items: @You have " + character.GetInventoryLength() + " items.";
       promt = promt.Replace("@", System.Environment.NewLine);
 
-      List<string> menuOptions = new List<string>();
-      foreach (Item item in character.Items)
-      {
-        menuOptions.Add(item.Name);
-      }
+      // !Skriv ned alla items som man har i Inventory!!
 
+      List<string> menuOptions = new List<string>();
       MenuFunction menu = new MenuFunction(promt, menuOptions);
 
       // ?Få tillbaka vad SelectedIndex är
@@ -54,6 +46,7 @@ namespace VinterProjektet
       }
     }
 
+    // !Fixa detta
     public void InventoryQuestion(Character character, int itemListIndex)
     {
       string promt = "What do you want to do?@";
