@@ -8,7 +8,6 @@ namespace VinterProjektet
     public void Start()
     {
       Console.Title = "Inventory - Jing Xiang Xu TE19B";
-
       RunStartMenu();
     }
 

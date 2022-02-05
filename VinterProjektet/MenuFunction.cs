@@ -55,7 +55,6 @@ namespace VinterProjektet
       ConsoleKey keyPressed;
       do
       {
-
         Console.Clear();
         DisplayOptions();
 

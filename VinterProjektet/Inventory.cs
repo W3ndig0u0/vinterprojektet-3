@@ -7,12 +7,31 @@ namespace VinterProjektet
   {
 
     //! Bör ha någon form av felkoll så att spelet inte krashar när man försöker använda eller hämta information om ett item som inte finns
+    string inventoryItem;
+    public string InventoryItem
+    {
+      get { return inventoryItem; }
+      set { inventoryItem = value; }
+    }
 
     List<Item> inventoryList = new List<Item>();
-    public List<Item> InventoryList
+
+    // ?returnerar baserat på listan
+    public string ShowInventory()
     {
-      get { return inventoryList; }
-      set { inventoryList = value; }
+      if (inventoryList == null)
+      {
+        return "You do not have any items";
+      }
+      else
+      {
+        foreach (Item item in inventoryList)
+        {
+          InventoryItem += item.Name + System.Environment.NewLine;
+        }
+      }
+
+      return InventoryItem;
     }
 
     public void Add(Item item)
@@ -31,18 +50,18 @@ namespace VinterProjektet
     {
       //? Kollar infomationen i positionen n på Listan
       string ItemInfo = inventoryList[n].ToString();
+      // Console.WriteLine(inventoryList[n].Name);
       return ItemInfo;
     }
 
-    public void UseItem(int n, Character c)
+    public void UseItem(int n, Character target)
     {
-
+      // Weapons.Use(target);
     }
 
     public int GetLength()
     {
-      int amountInventory = inventoryList.Count;
-      return amountInventory;
+      return inventoryList.Count;
     }
 
   }

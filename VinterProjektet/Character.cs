@@ -34,6 +34,22 @@ namespace VinterProjektet
       set { strength = value; }
     }
 
+    protected int baseStrength;
+    public int BaseStrength
+    {
+      get { return baseStrength; }
+      set { baseStrength = value; }
+    }
+
+    public Character(int hp, string name, int baseStrength)
+    {
+      Hp = hp;
+      Name = name;
+      BaseStrength = baseStrength;
+      Inventory();
+    }
+
+
     protected Inventory inventory;
 
     public void Inventory()
@@ -42,6 +58,10 @@ namespace VinterProjektet
       inventory = new Inventory();
     }
 
+    public string ShowInventory()
+    {
+      return inventory.ShowInventory();
+    }
 
     // !AddToInventory ska lägga in items i karaktärens inventory-instans. 
     public void AddToInventory(Item item)
@@ -76,22 +96,11 @@ namespace VinterProjektet
     }
 
 
-    public void heal(Character target)
-    {
-      Random rand = new Random();
-      int healing;
-      healing = rand.Next(100, 150);
-      Hp += healing;
-      Console.WriteLine("The " + this.Name + " uses a Potion!");
-      Console.WriteLine("The " + this.Name + " heals himself for " + healing + " Points");
-      Console.WriteLine();
-    }
-
     // ?Får en random attack
     public void GetAttack(int baseStrength)
     {
       Random rand = new Random();
-      Strength = rand.Next(200, 300);
+      Strength = rand.Next(baseStrength / 2, baseStrength * 2);
       Strength += baseStrength;
     }
 

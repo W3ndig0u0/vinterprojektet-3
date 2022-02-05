@@ -23,9 +23,23 @@ namespace VinterProjektet
       set { name = value; }
     }
 
-    public string GetInfo()
+    protected int level;
+    public int Level
     {
-      return name;
+      get { return level; }
+      set { level = value; }
+    }
+
+    public Item(string name, int level)
+    {
+      Name = name;
+      Level = level;
+    }
+
+    public void GetInfo()
+    {
+      Console.WriteLine("The Item's Name is " + Name);
+      Console.WriteLine("The Item's level is " + Level);
     }
 
   }

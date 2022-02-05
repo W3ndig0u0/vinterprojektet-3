@@ -6,15 +6,22 @@ namespace VinterProjektet
   public class GamePlay
   {
     InventoryMenu inventoryMenu = new InventoryMenu();
-    Character hero = new Character();
-    Character enemy = new Character();
+    Character hero = new Character(1500, "player", 20);
+    Character enemy = new Character(2000, "enemy1", 20);
+
+    HealPotions healPotions = new HealPotions("Healpotions", 1);
+    PoisonPotion poisonPotion = new PoisonPotion("PoisonPotion", 1);
+    Weapons sword = new Weapons("Weapons", 1);
+
+
 
     void DisplayChoices()
     {
-      string promt = "You are facing " + enemy.Name + "!@@************************************************@You have " + hero.Hp + "hp. @The " + enemy.Name + " has " + enemy.Hp + "@************************************************@";
+      List<Item> Items = new List<Item>() { healPotions, poisonPotion, sword };
+      string promt = "You are facing " + enemy.Name + "!@@************************************************@You have " + hero.Hp + "hp. @The " + enemy.Name + " has " + enemy.Hp + "hp. @************************************************@";
       promt = promt.Replace("@", System.Environment.NewLine);
 
-      List<string> menuOptions = new List<string>() { "Attack", "Defend", "Check Inventory", "heal", "Quit Game" };
+      List<string> menuOptions = new List<string>() { "Attack", "Defend", "Check Inventory", "Get Item", "Quit Game" };
       MenuFunction menu = new MenuFunction(promt, menuOptions);
 
       // ?Få tillbaka vad SelectedIndex är
@@ -32,11 +39,15 @@ namespace VinterProjektet
           break;
 
         case 2:
-          Console.WriteLine("Inventory.");
+          new InventoryMenu().InventoryQuestion();
           break;
 
         case 3:
-          hero.heal(enemy);
+          Console.WriteLine(Items[0].Name + " Level: " + Items[0].Level + " got added to your inventory.");
+          hero.AddToInventory(Items[0]);
+          Console.WriteLine("you have now " + hero.GetInventoryLength() + " things on your inventory.");
+          Console.WriteLine("Press Enter to Continue");
+          Console.ReadLine();
           break;
 
         case 4:
@@ -51,19 +62,12 @@ namespace VinterProjektet
 
     public void Game()
     {
-      hero.Name = "Player";
-      hero.Hp = 1500;
-      hero.Inventory();
-
-      enemy.Name = "enemy1";
-      enemy.Hp = 2000;
-
       // ?Om någon dör slutar while loopen
       while (hero.Hp > 0 && enemy.Hp > 0)
       {
         // !Base Strength, Vapen ökar den
-        hero.GetAttack(50);
-        enemy.GetAttack(100);
+        hero.GetAttack(hero.BaseStrength);
+        enemy.GetAttack(enemy.BaseStrength);
         DisplayChoices();
 
         if (enemy.Hp > 0)
@@ -84,7 +88,7 @@ namespace VinterProjektet
       {
         Console.WriteLine("You are Victorious!");
         // ?Gör så att man fortsätter
-        Console.WriteLine("Press Enter to Continue");
+        Console.WriteLine("Press any key to Continue");
         Console.ReadLine();
         new StartMenu().Start();
       }
