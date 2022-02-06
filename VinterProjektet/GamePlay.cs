@@ -5,8 +5,10 @@ namespace VinterProjektet
 {
   public class GamePlay
   {
-    Hero hero = new Hero(10, "10", 10);
-    Demon enemy = new Demon(10, "10", 10);
+    Hero hero = new Hero(100, 100, "Player", 10);
+    Demon enemy = new Demon(100, 100, "Lesser Demon", 10);
+    DemonKing demonKing = new DemonKing(1000, 1000, "DemonKing", 50);
+
     HealPotions healPotions = new HealPotions("Healpotions", 1);
     PoisonPotion poisonPotion = new PoisonPotion("PoisonPotion", 1);
     Weapons sword = new Weapons("Weapons", 1);
@@ -15,6 +17,10 @@ namespace VinterProjektet
 
     void DisplayChoices()
     {
+      // !hp ska vara en bar inte bara siffra
+      // !hp ska vara en bar inte bara siffra
+      hero.HpBar();
+      enemy.HpBar();
 
       List<Item> Items = new List<Item>() { healPotions, poisonPotion, sword };
       string promt = "You are facing " + enemy.Name + "!@@************************************************@You have " + hero.Hp + "hp. @The " + enemy.Name + " has " + enemy.Hp + "hp. @************************************************@";

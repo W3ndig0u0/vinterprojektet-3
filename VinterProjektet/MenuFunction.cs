@@ -65,8 +65,6 @@ namespace VinterProjektet
 
         //? Uppdaterar SelectedIndex baserat på vad användaren trycker.
 
-        //?Vill inte se vad spelaren skriver, bara om en knapp trycks
-        //? så att programmet kan se om det är en av menyn kontroll knapparna.
         if (keyPressed == ConsoleKey.UpArrow)
         {
           SelectedIndex--;

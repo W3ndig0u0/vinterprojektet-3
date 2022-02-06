@@ -14,6 +14,8 @@ namespace VinterProjektet
       promt = promt.Replace("@", System.Environment.NewLine);
 
       // !Skriv ned alla items som man har i Inventory!!
+      // !Skriv ned alla items som man har i Inventory!!
+      // !Skriv ned alla items som man har i Inventory!!
 
       List<string> menuOptions = new List<string>();
       MenuFunction menu = new MenuFunction(promt, menuOptions);
@@ -46,7 +48,7 @@ namespace VinterProjektet
       }
     }
 
-    // !Fixa detta
+    // ?Parameterna innehåller vilken itemIndex spelaren valde
     public void InventoryQuestion(Character character, int itemListIndex)
     {
       string promt = "What do you want to do?@";
@@ -59,30 +61,31 @@ namespace VinterProjektet
       int selectedIndex = menu.Run();
       menu.Run();
 
+
       switch (selectedIndex)
       {
         case 0:
-          Console.WriteLine($"Använd saker i listan");
-
+          Console.WriteLine($"Using the Item");
+          // !Detta use är bara för heal
+          // !ha en if statement om itemet är en poisenpotion
+          character.UseItem(itemListIndex, character);
           Console.ReadLine();
           break;
 
         case 1:
-          Console.WriteLine("kolla saken i listan");
-          Console.WriteLine("inventory har : " + character.GetInventoryLength() + " platser tagna.");
-          Console.WriteLine($"vilken nummer i inventory Vill du kolla itemet på?");
-          // character.GetItemInfo(int.Parse(Console.ReadLine()));
+          Console.WriteLine("Getting More information about the selected item.");
+          character.GetItemInfo(itemListIndex);
           Console.ReadLine();
           break;
 
         case 2:
-          Console.WriteLine("inventory har : " + character.GetInventoryLength() + " platser tagna.");
-          Console.WriteLine($"What do you want to throw away?");
-          // character.RemoveFromInventory(int.Parse(Console.ReadLine()));
+          Console.WriteLine($"Throwing away the selected item.");
+          character.RemoveFromInventory(itemListIndex);
           Console.ReadLine();
           break;
 
         case 3:
+          Console.WriteLine($"While you were looking in your inventory, the enemy tried to attack you");
           break;
 
         default:

@@ -13,6 +13,13 @@ namespace VinterProjektet
       set { hp = value; } //?ModifyHp()
     }
 
+    protected int maxHp;
+    public int MaxHp
+    {
+      get { return maxHp; }
+      set { maxHp = value; }
+    }
+
     protected string name;
     public string Name
     {
@@ -34,15 +41,9 @@ namespace VinterProjektet
       set { baseStrength = value; }
     }
 
-    protected int level;
-    public int Level
+    public Character(int maxHp, int hp, string name, int baseStrength)
     {
-      get { return level; }
-      set { level = value; }
-    }
-
-    public Character(int hp, string name, int baseStrength)
-    {
+      MaxHp = maxHp;
       Hp = hp;
       Name = name;
       BaseStrength = baseStrength;
@@ -109,32 +110,54 @@ namespace VinterProjektet
       Strength += baseStrength;
     }
 
-    // ?50/50 om man lyckas defenda
-    public void Defend(Character target)
+    // ?Hp bar
+    public void HpBar()
     {
-      Random rand = new Random();
-      int defendChance = rand.Next(0, 100);
+      Console.WriteLine(this.Name + "Health: ");
+      Console.Write("[");
 
-      if (defendChance > 70)
+      if (hp < 20)
       {
-        Console.WriteLine("The " + this.Name + " Succsessfuly defended himself!");
-        Console.WriteLine();
-        target.strength /= 3;
+        Console.BackgroundColor = ConsoleColor.Red;
+        for (int i = 0; i < Hp; i++)
+        {
+          Console.Write(" ");
+        }
       }
+
       else
       {
-        Console.WriteLine("The " + this.Name + " fricked up and took extra damage!");
-        Console.WriteLine();
-        target.strength *= 2;
+        // ?Den gröna delen i hpbar
+        Console.BackgroundColor = ConsoleColor.Green;
+        for (int i = 0; i < Hp; i++)
+        {
+          Console.Write(" ");
+        }
       }
+
+      // ?resten är svart
+      Console.BackgroundColor = ConsoleColor.Black;
+      for (int i = 0; i < MaxHp; i++)
+      {
+        Console.Write(" ");
+      }
+      Console.ResetColor();
+
+      Console.WriteLine("] (" + Hp + "/" + MaxHp + ")");
+    }
+
+    // !Ha en random nummer och bereonde på den samt fiende, välj en unik attack
+    public virtual void enemyAttack()
+    {
+
     }
 
     // ?Attacking
-    public void Attack(Character target)
+    public virtual void Attack(Character target)
     {
       Random rand = new Random();
       int hitChance = rand.Next(0, 100);
-      if (hitChance > 50)
+      if (hitChance > 80)
       {
         Console.WriteLine("The " + this.Name + " attacks!");
         target.Hp -= Strength;
