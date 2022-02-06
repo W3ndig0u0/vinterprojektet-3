@@ -20,5 +20,13 @@ namespace VinterProjektet
       Console.WriteLine("The " + target.Name + " lost " + poison + " Health points");
       Console.WriteLine();
     }
+
+    public override void GetInfo()
+    {
+      Console.WriteLine("The Item's Name is " + Name);
+      Console.WriteLine("The Item's level is " + Level);
+      Console.WriteLine("Poison Potion is used for hurting enemys");
+    }
+
   }
 }

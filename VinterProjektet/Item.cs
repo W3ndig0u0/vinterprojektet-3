@@ -36,7 +36,7 @@ namespace VinterProjektet
       Level = level;
     }
 
-    public void GetInfo()
+    public virtual void GetInfo()
     {
       Console.WriteLine("The Item's Name is " + Name);
       Console.WriteLine("The Item's level is " + Level);

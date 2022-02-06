@@ -5,33 +5,31 @@ namespace VinterProjektet
 {
   public class GamePlay
   {
-    Hero hero = new Hero(100, 100, "Player", 10);
-    Demon enemy = new Demon(100, 100, "Lesser Demon", 10);
-    DemonKing demonKing = new DemonKing(1000, 1000, "DemonKing", 50);
+    Hero hero = new Hero(50, 50, "Player", 10);
+    Demon demonKing = new Demon(50, 50, "Lesser Demon", 10);
+    DemonKing enemy = new DemonKing(1000, 1000, "DemonKing", 50);
 
     HealPotions healPotions = new HealPotions("Healpotions", 1);
     PoisonPotion poisonPotion = new PoisonPotion("PoisonPotion", 1);
     Weapons sword = new Weapons("Weapons", 1);
 
 
-
     void DisplayChoices()
     {
-      // !hp ska vara en bar inte bara siffra
-      // !hp ska vara en bar inte bara siffra
-      hero.HpBar();
-      enemy.HpBar();
+      // List<Character> character = new List<Character>() { hero, enemy, demonKing };
 
       List<Item> Items = new List<Item>() { healPotions, poisonPotion, sword };
-      string promt = "You are facing " + enemy.Name + "!@@************************************************@You have " + hero.Hp + "hp. @The " + enemy.Name + " has " + enemy.Hp + "hp. @************************************************@";
+      string promt = "You are facing " + enemy.Name;
+      // !Skriv ned ifall de har en item + level
+
       promt = promt.Replace("@", System.Environment.NewLine);
 
       List<string> menuOptions = new List<string>() { "Attack", "Defend", "Check Inventory", "Get Item", "Quit Game" };
       MenuFunction menu = new MenuFunction(promt, menuOptions);
 
       // ?Få tillbaka vad SelectedIndex är
-      int selectedIndex = menu.Run();
-      menu.Run();
+      int selectedIndex = menu.Run(1, hero, enemy);
+      menu.Run(1, hero, enemy);
 
       switch (selectedIndex)
       {
@@ -44,7 +42,7 @@ namespace VinterProjektet
           break;
 
         case 2:
-          new InventoryMenu().InventoryListShow(hero);
+          new InventoryMenu().InventoryListShow(hero, enemy);
           break;
 
         case 3:

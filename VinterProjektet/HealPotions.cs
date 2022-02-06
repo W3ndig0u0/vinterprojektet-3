@@ -22,5 +22,12 @@ namespace VinterProjektet
       Console.WriteLine();
     }
 
+    public override void GetInfo()
+    {
+      Console.WriteLine("The Item's Name is " + Name);
+      Console.WriteLine("The Item's level is " + Level);
+      Console.WriteLine("Healing Potions is used for healing the player");
+    }
+
   }
 }

@@ -18,5 +18,13 @@ namespace VinterProjektet
       target.BaseStrength += 10;
     }
 
+    public override void GetInfo()
+    {
+      Console.WriteLine("The Item's Name is " + Name);
+      Console.WriteLine("The Item's level is " + Level);
+      Console.WriteLine("The sword says: wee wee");
+      Console.WriteLine("And the sword is used for increasing your strength by 10 points");
+    }
+
   }
 }

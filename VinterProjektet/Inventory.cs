@@ -20,13 +20,15 @@ namespace VinterProjektet
     {
       if (inventoryList == null)
       {
-        Console.WriteLine("You do not have any items");
+        Console.WriteLine("You do not have any items...");
       }
 
       else
       {
         for (int i = 0; i < inventoryList.Count; i++)
         {
+          // !Istället för att skriva ned alla för vajre rad
+          // !Klumpa ihop flera ifall de e samma typ, och sen skriv x antal
           Console.WriteLine("The " + inventoryList[i].Name);
         }
       }
@@ -44,12 +46,15 @@ namespace VinterProjektet
       inventoryList.RemoveAt(n);
     }
 
-    public string GetItemInfo(int n)
+    public void GetItemInfo(int n)
     {
       //? Kollar infomationen i positionen n på Listan
-      string ItemInfo = inventoryList[n].ToString();
-      // Console.WriteLine(inventoryList[n].Name);
-      return ItemInfo;
+      inventoryList[n].GetInfo();
+    }
+
+    public string GetInventoryName(int n)
+    {
+      return inventoryList[n].Name.ToString();
     }
 
     public void UseItem(int n, Character target)

@@ -13,6 +13,10 @@ namespace VinterProjektet
 
     void RunStartMenu()
     {
+      // !fixar detta senare...
+      Hero hero = new Hero(100, 100, "Player", 10);
+      Demon enemy = new Demon(100, 100, "Lesser Demon", 10);
+
       string promt = "Welcome to the Inventory. What to you want to do? @Move around in the Menu by using the up and down arrows.@Continue by pressing Enter.@";
       promt = promt.Replace("@", System.Environment.NewLine);
 
@@ -20,8 +24,8 @@ namespace VinterProjektet
       MenuFunction menu = new MenuFunction(promt, menuOptions);
 
       // ?Få tillbaka vad SelectedIndex är
-      int selectedIndex = menu.Run();
-      menu.Run();
+      int selectedIndex = menu.Run(0, hero, enemy);
+      menu.Run(0, hero, enemy);
 
       switch (selectedIndex)
       {

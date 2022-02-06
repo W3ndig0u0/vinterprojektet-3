@@ -18,11 +18,36 @@ namespace VinterProjektet
       SelectedIndex = 0;
     }
 
-
     // ?Detta rendrar menyn
-    void DisplayOptions()
+    void DisplayOptions(int n, Character hero, Character enemy)
     {
       Console.WriteLine(Promt);
+
+      switch (n)
+      {
+        case 0:
+          // ?Om inte någon metod ska köras.
+          menuOptions();
+          break;
+
+        case 1:
+          hero.HpBar();
+          enemy.HpBar();
+          menuOptions();
+          break;
+        case 2:
+          hero.ShowInventory();
+          menuOptions();
+          break;
+
+        default:
+          Console.WriteLine("Error, unknown option");
+          break;
+      }
+    }
+
+    void menuOptions()
+    {
       // !Skriver ut allt i listan
       for (int i = 0; i < MenuOptions.Count; i++)
       {
@@ -48,15 +73,15 @@ namespace VinterProjektet
       Console.ResetColor();
     }
 
-
+    // !Blev trött, fixar detta senare ifall jag blir smartare
     // ?Koden som körs, låter spelaren ändra selectedIndex
-    public int Run()
+    public int Run(int n, Character hero, Character enemy)
     {
       ConsoleKey keyPressed;
       do
       {
         Console.Clear();
-        DisplayOptions();
+        DisplayOptions(n, hero, enemy);
 
         //? ConsoelkeyInfo returneras när man gör en Readkey, detta låter oss se vad för knapp man track på
         ConsoleKeyInfo keyInfo = Console.ReadKey(true);

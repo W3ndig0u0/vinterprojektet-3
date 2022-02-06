@@ -54,13 +54,8 @@ namespace VinterProjektet
 
     public void Inventory()
     {
-      //? instance program class
+      //? ny inventory för varje karkatär
       inventory = new Inventory();
-    }
-
-    public List<Item> GetInventoryList()
-    {
-      return inventory.GetInventoryList();
     }
 
     public void ShowInventory()
@@ -90,15 +85,20 @@ namespace VinterProjektet
       inventory.UseItem(n, this);
     }
 
-    public string GetItemInfo(int n)
+    public void GetItemInfo(int n)
     {
-      return inventory.GetItemInfo(n);
+      inventory.GetItemInfo(n);
     }
 
     public int GetInventoryLength()
     {
       int amount = inventory.GetLength();
       return amount;
+    }
+
+    public string GetInventoryName(int itemListIndex)
+    {
+      return inventory.GetInventoryName(itemListIndex);
     }
 
 
@@ -135,9 +135,9 @@ namespace VinterProjektet
         }
       }
 
-      // ?resten är svart
+      // ?resten av hpBaren blir svart
       Console.BackgroundColor = ConsoleColor.Black;
-      for (int i = 0; i < MaxHp; i++)
+      for (int i = Hp; i < MaxHp; i++)
       {
         Console.Write(" ");
       }
@@ -157,7 +157,7 @@ namespace VinterProjektet
     {
       Random rand = new Random();
       int hitChance = rand.Next(0, 100);
-      if (hitChance > 80)
+      if (hitChance >= 20)
       {
         Console.WriteLine("The " + this.Name + " attacks!");
         target.Hp -= Strength;
