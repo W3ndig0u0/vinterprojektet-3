@@ -18,8 +18,14 @@ namespace VinterProjektet
 
       // ?Få tillbaka vad SelectedIndex är
       // !Inventory items skrivs ned genom menu run, fixar detta senare :)
-      int selectedIndex = menu.Run(2, player, enemy);
       menu.Run(2, player, enemy);
+
+      Console.WriteLine("Choose the number of Item");
+      // !Fixa så att använderen inte crashar hela systemet
+      int selectedIndex = int.Parse(Console.ReadLine());
+
+      // ?Parameterna innehåller vilken itemIndex spelaren valde
+      InventoryQuestion(player, selectedIndex, enemy);
 
       if (player.GetInventoryLength() == 0)
       {
@@ -27,29 +33,6 @@ namespace VinterProjektet
         return;
       }
 
-      // ?Parameterna innehåller vilken itemIndex spelaren valde
-      switch (selectedIndex)
-      {
-        case 0:
-          InventoryQuestion(player, selectedIndex, enemy);
-          break;
-
-        case 1:
-          InventoryQuestion(player, selectedIndex, enemy);
-          break;
-
-        case 2:
-          InventoryQuestion(player, selectedIndex, enemy);
-          break;
-
-        case 3:
-          InventoryQuestion(player, selectedIndex, enemy);
-          break;
-
-        default:
-          Console.WriteLine("Error");
-          break;
-      }
     }
 
     // ?Parameterna innehåller vilken itemIndex spelaren valde
@@ -69,16 +52,16 @@ namespace VinterProjektet
       switch (selectedIndex)
       {
         case 0:
-          Console.WriteLine($"Using the Item");
-          // !Detta use är bara för heal
-          // !ha en if statement om itemet är en poisenpotion
+          Console.WriteLine($"Using the " + player.GetInventoryName(itemListIndex));
+          // !Fråga användaren vem som ska anvnda itemet.
+          // Console.WriteLine("Who do you want to use it on?");
           player.UseItem(itemListIndex, player);
           Console.ReadLine();
           break;
 
         case 1:
           Console.Clear();
-          Console.WriteLine("Getting More information about the selected item:");
+          Console.WriteLine("Getting More information about " + player.GetInventoryName(itemListIndex) + ":");
           Console.WriteLine();
           player.GetItemInfo(itemListIndex);
           Console.WriteLine($"Press any button to continue.");

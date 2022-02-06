@@ -29,7 +29,7 @@ namespace VinterProjektet
         {
           // !Istället för att skriva ned alla för vajre rad
           // !Klumpa ihop flera ifall de e samma typ, och sen skriv x antal
-          Console.WriteLine("The " + inventoryList[i].Name);
+          Console.WriteLine(i + "The " + inventoryList[i].Name);
         }
       }
     }
@@ -61,7 +61,8 @@ namespace VinterProjektet
     {
       // !Anänder saken som har indexen n
       // !Beroende på vad för item, använder den annan use
-      // Weapons.Use(target);
+      inventoryList[n].Use(target);
+
     }
 
     public int GetLength()

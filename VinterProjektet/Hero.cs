@@ -19,6 +19,21 @@ namespace VinterProjektet
       set { level = value; }
     }
 
+    protected int levelExp;
+    public int LevelExp
+    {
+      get { return levelExp; }
+      set { levelExp = value; }
+    }
+
+    protected int levelExpCap = 20;
+    public int LevelExpCap
+    {
+      get { return levelExpCap; }
+      set { levelExpCap = value; }
+    }
+
+
     // ?50/50 om man lyckas defenda
     public void Defend(Character target)
     {
@@ -39,9 +54,19 @@ namespace VinterProjektet
       }
     }
 
-    void levelUp()
+    public void levelUp()
     {
-      // !Levlar up för varje fiende du dödar 
+      level++;
+      levelExp = 0;
+      levelExpCap += 20;
+      BaseStrength += 10;
+      MaxHp += 5;
+      Hp += 10;
+      Console.WriteLine("You gained 1 Lv.");
+      Console.WriteLine("Level: " + (level - 1) + " ==> " + level);
+      Console.WriteLine("BaseStrength: " + (BaseStrength - 10) + " ==> " + BaseStrength);
+      Console.WriteLine("MaxHp: " + (MaxHp - 5) + " ==> " + MaxHp);
+      Console.WriteLine("Hp: " + (Hp - 5) + " ==> " + Hp);
     }
 
     void AntiDemonAttack()

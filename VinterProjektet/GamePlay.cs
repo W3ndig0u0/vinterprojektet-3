@@ -7,7 +7,7 @@ namespace VinterProjektet
   {
     Hero hero = new Hero(50, 50, "Player", 10);
 
-    Demon enemy = new Demon(20, 20, "Lesser Demon", 5);
+    Demon enemy = new Demon(30, 30, "Lesser Demon", 5);
     DemonKing demonKing = new DemonKing(500, 500, "DemonKing", 50);
 
     HealPotions healPotions = new HealPotions("Healpotions", 1);
@@ -42,11 +42,6 @@ namespace VinterProjektet
         case 2:
           new InventoryMenu().InventoryListShow(hero, enemy);
           break;
-
-        // !Lägg detta när man vinner över en monster
-        // !Lägg random monster varje gång
-        // !Lägg random item som man får
-        // !Gör flera sub karaktäerer
 
         case 3:
           new StartMenu().QuitGame();
@@ -90,6 +85,7 @@ namespace VinterProjektet
       Console.WriteLine("you have now " + hero.GetInventoryLength() + " things on your inventory.");
       Console.WriteLine("Press Enter to Continue");
       Console.ReadLine();
+      Console.Clear();
     }
 
     // ?Detta returnenar en ranom fiende
@@ -117,14 +113,20 @@ namespace VinterProjektet
       }
     }
 
-    // ?Ökar spelarens liv
-    // !ha en varibel istället för att hårdkoda detta
-    void healPlayer(Character player)
+    // ?Ökar spelarens lv
+    void expPlayer(Hero player)
     {
-      player.Hp += 25;
-      Console.WriteLine("The player's hp has increased by 25 points");
+      player.LevelExp += 10;
+      Console.WriteLine("The player's lv has increased by 10 points. (" + player.LevelExp + "/" + player.LevelExpCap + ")");
+
+      if (player.LevelExp >= player.LevelExpCap)
+      {
+        player.levelUp();
+      }
+
       Console.WriteLine("Press Enter to Continue");
       Console.ReadLine();
+      Console.Clear();
     }
 
     // ?Vad som händer när någon dör
@@ -142,12 +144,9 @@ namespace VinterProjektet
         Console.Clear();
         Console.WriteLine("You are Victorious!");
         Reward();
-        Console.Clear();
-        healPlayer(hero);
+        expPlayer(hero);
         Game(RandomEnemy());
         Console.Clear();
-        Console.WriteLine("Press Enter to Continue");
-        Console.ReadLine();
       }
     }
 

@@ -148,7 +148,7 @@ namespace VinterProjektet
     }
 
     // !Ha en random nummer och bereonde på den samt fiende, välj en unik attack
-    public virtual void enemyAttack()
+    public virtual void enemyAi()
     {
 
     }
