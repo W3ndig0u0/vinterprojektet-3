@@ -5,8 +5,8 @@ namespace VinterProjektet
 {
   public class GamePlay
   {
-    Character hero = new Character(1500, "player", 20);
-    Character enemy = new Character(2000, "enemy1", 20);
+    Hero hero = new Hero(10, "10", 10);
+    Demon enemy = new Demon(10, "10", 10);
     HealPotions healPotions = new HealPotions("Healpotions", 1);
     PoisonPotion poisonPotion = new PoisonPotion("PoisonPotion", 1);
     Weapons sword = new Weapons("Weapons", 1);

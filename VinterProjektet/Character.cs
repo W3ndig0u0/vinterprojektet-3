@@ -20,14 +20,6 @@ namespace VinterProjektet
       set { name = value; }
     }
 
-    // !Används inte nu, kanske kostar postions mp? idk
-    // protected int mp;
-    // protected int Mp
-    // {
-    //   get { return mp; }
-    //   set { mp = value; }
-    // }
-
     protected int strength;
     public int Strength
     {
@@ -42,6 +34,13 @@ namespace VinterProjektet
       set { baseStrength = value; }
     }
 
+    protected int level;
+    public int Level
+    {
+      get { return level; }
+      set { level = value; }
+    }
+
     public Character(int hp, string name, int baseStrength)
     {
       Hp = hp;
@@ -50,23 +49,7 @@ namespace VinterProjektet
       Inventory();
     }
 
-
     protected Inventory inventory;
-
-    List<Item> items = new List<Item>();
-    public List<Item> Items
-    {
-      get { return items; }
-      set { items = value; }
-    }
-
-    List<string> itemsString = new List<string>();
-    public List<string> ItemsString
-    {
-      get { return itemsString; }
-      set { itemsString = value; }
-    }
-
 
     public void Inventory()
     {
@@ -76,7 +59,7 @@ namespace VinterProjektet
 
     public List<Item> GetInventoryList()
     {
-      return Items = inventory.GetInventoryList();
+      return inventory.GetInventoryList();
     }
 
     public void ShowInventory()
