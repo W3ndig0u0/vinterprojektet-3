@@ -10,5 +10,8 @@ namespace VinterProjektet
       Name = name;
       BaseStrength = baseStrength;
     }
+    void flee(){
+      
+    }
   }
 }

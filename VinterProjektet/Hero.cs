@@ -10,5 +10,16 @@ namespace VinterProjektet
       Name = name;
       BaseStrength = baseStrength;
     }
+
+    void AntiDemonAttack()
+    {
+      // !Om fiende är en Demonking så finns det en chans att du skadar dubbelt 
+    }
+
+    void Blessed()
+    {
+      // !Om fiende är en Demonking så finns det en chans att du överlever en dödlig attack
+    }
+
   }
 }
