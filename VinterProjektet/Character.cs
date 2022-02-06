@@ -116,7 +116,9 @@ namespace VinterProjektet
       Console.WriteLine(this.Name + "Health: ");
       Console.Write("[");
 
-      if (hp < 20)
+      // ?Den gröna och röda delen i hpbar
+      // ?Beroende på karaktärens liv
+      if (hp <= 19)
       {
         Console.BackgroundColor = ConsoleColor.Red;
         for (int i = 0; i < Hp; i++)
@@ -127,7 +129,6 @@ namespace VinterProjektet
 
       else
       {
-        // ?Den gröna delen i hpbar
         Console.BackgroundColor = ConsoleColor.Green;
         for (int i = 0; i < Hp; i++)
         {

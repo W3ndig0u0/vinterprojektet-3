@@ -7,7 +7,7 @@ namespace VinterProjektet
   {
     // !fixar detta senare...
     Hero hero = new Hero(100, 100, "Player", 10);
-    Demon enemy = new Demon(100, 100, "Lesser Demon", 10);
+    Demon enemy = new Demon(20, 20, "Lesser Demon", 10);
 
     public void Start()
     {

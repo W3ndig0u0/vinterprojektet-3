@@ -7,7 +7,7 @@ namespace VinterProjektet
   {
     Hero hero = new Hero(50, 50, "Player", 10);
 
-    Demon enemy = new Demon(30, 30, "Lesser Demon", 5);
+    Demon enemy = new Demon(20, 20, "Lesser Demon", 5);
     DemonKing demonKing = new DemonKing(500, 500, "DemonKing", 50);
 
     HealPotions healPotions = new HealPotions("Healpotions", 1);
@@ -103,12 +103,16 @@ namespace VinterProjektet
       {
         Console.WriteLine("A " + enemyTypes[1].Name + " appeard in front of you.");
         enemyTypes[1].Hp = enemyTypes[1].MaxHp;
+        Console.WriteLine("Press Enter to Continue");
+        Console.ReadLine();
         return enemyTypes[1];
       }
       else
       {
         Console.WriteLine("A " + enemyTypes[0].Name + " appeard in front of you.");
         enemyTypes[0].Hp = enemyTypes[0].MaxHp;
+        Console.WriteLine("Press Enter to Continue");
+        Console.ReadLine();
         return enemyTypes[0];
       }
     }
@@ -118,6 +122,9 @@ namespace VinterProjektet
     void healPlayer(Character player)
     {
       player.Hp += 25;
+      Console.WriteLine("The player's hp has increased by 25 points");
+      Console.WriteLine("Press Enter to Continue");
+      Console.ReadLine();
     }
 
     // ?Vad som händer när någon dör
@@ -132,10 +139,13 @@ namespace VinterProjektet
       }
       else
       {
+        Console.Clear();
         Console.WriteLine("You are Victorious!");
         Reward();
-        Game(RandomEnemy());
+        Console.Clear();
         healPlayer(hero);
+        Game(RandomEnemy());
+        Console.Clear();
         Console.WriteLine("Press Enter to Continue");
         Console.ReadLine();
       }
