@@ -19,7 +19,7 @@ namespace VinterProjektet
     }
 
     // ?Detta rendrar menyn
-    void DisplayOptions(int n, Character hero, Character enemy)
+    void DisplayOptions(int n, Hero hero, Character enemy)
     {
       Console.WriteLine(Promt);
 
@@ -31,12 +31,13 @@ namespace VinterProjektet
           break;
 
         case 1:
+          Console.WriteLine();
+          hero.CheckStatsHero(hero);
           hero.HpBar();
+          Console.WriteLine();
+          enemy.CheckStats(enemy);
           enemy.HpBar();
-          menuOptions();
-          break;
-        case 2:
-          hero.ShowInventory();
+          Console.WriteLine();
           menuOptions();
           break;
 
@@ -51,7 +52,6 @@ namespace VinterProjektet
       // !Skriver ut allt i listan
       for (int i = 0; i < MenuOptions.Count; i++)
       {
-
         string currentOptions = MenuOptions[i];
         string prefix;
 
@@ -73,9 +73,8 @@ namespace VinterProjektet
       Console.ResetColor();
     }
 
-    // !Blev trött, fixar detta senare ifall jag blir smartare
     // ?Koden som körs, låter spelaren ändra selectedIndex
-    public int Run(int n, Character hero, Character enemy)
+    public int Run(int n, Hero hero, Character enemy)
     {
       ConsoleKey keyPressed;
       do

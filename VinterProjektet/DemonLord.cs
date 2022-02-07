@@ -2,10 +2,10 @@ using System;
 
 namespace VinterProjektet
 {
-  public class DemonKing : Character
+  public class DemonLord : Character
   {
 
-    public DemonKing(int maxHp, int hp, string name, int baseStrength) : base(maxHp, hp, name, baseStrength)
+    public DemonLord(int maxHp, int hp, string name, int baseStrength) : base(maxHp, hp, name, baseStrength)
     {
       MaxHp = maxHp;
       Hp = hp;
@@ -14,7 +14,7 @@ namespace VinterProjektet
     }
 
     // !Ha en random nummer och bereonde på den samt fiende, välj en unik attack
-    public override void enemyAi()
+    public void enemyAi()
     {
 
     }
@@ -27,7 +27,7 @@ namespace VinterProjektet
 
     }
 
-    void demonMode()
+    void DemonMode()
     {
       //! När demonking är har lite liv, blir den extra stark
       // !För varje miss, blir demon ännu starkare

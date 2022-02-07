@@ -16,6 +16,7 @@ namespace VinterProjektet
       Console.WriteLine("The sword says: wee wee");
       Console.WriteLine("And your strength is increased by 10 points");
       target.BaseStrength += 10;
+      Console.WriteLine("BaseStrength: " + (target.BaseStrength - 10) + " ==> " + target.BaseStrength);
     }
 
     public override void GetInfo()

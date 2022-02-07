@@ -7,8 +7,8 @@ namespace VinterProjektet
   {
     Hero hero = new Hero(50, 50, "Player", 10);
 
-    Demon enemy = new Demon(30, 30, "Lesser Demon", 5);
-    DemonKing demonKing = new DemonKing(500, 500, "DemonKing", 50);
+    Demon enemy = new Demon(50, 50, "Lesser Demon", 10);
+    DemonLord demonKing = new DemonLord(500, 500, "DemonKing", 100);
 
     HealPotions healPotions = new HealPotions("Healpotions", 1);
     PoisonPotion poisonPotion = new PoisonPotion("PoisonPotion", 1);
@@ -32,6 +32,7 @@ namespace VinterProjektet
       switch (selectedIndex)
       {
         case 0:
+          hero.AntiDemonAttack(enemy);
           hero.Attack(enemy);
           break;
 
@@ -75,6 +76,7 @@ namespace VinterProjektet
       CheckDeath();
     }
 
+    // ?Ger en random Item till spelaren när en demon besegras
     void Reward()
     {
       List<Item> Items = new List<Item>() { healPotions, poisonPotion, sword };
@@ -105,7 +107,7 @@ namespace VinterProjektet
       }
       else
       {
-        Console.WriteLine("A " + enemyTypes[0].Name + " appeard in front of you.");
+        Console.WriteLine("Another " + enemyTypes[0].Name + " appeard in front of you.");
         enemyTypes[0].Hp = enemyTypes[0].MaxHp;
         Console.WriteLine("Press Enter to Continue");
         Console.ReadLine();
@@ -121,7 +123,7 @@ namespace VinterProjektet
 
       if (player.LevelExp >= player.LevelExpCap)
       {
-        player.levelUp();
+        player.LevelUp();
       }
 
       Console.WriteLine("Press Enter to Continue");

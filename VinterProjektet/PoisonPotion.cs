@@ -14,10 +14,11 @@ namespace VinterProjektet
     {
       Random rand = new Random();
       int poison;
-      poison = rand.Next(100, 150);
+      poison = rand.Next(10, 20);
       target.Hp -= poison;
       Console.WriteLine("You used a Poison Potion!");
       Console.WriteLine("The " + target.Name + " lost " + poison + " Health points");
+      Console.WriteLine("Hp: " + (target.Hp - poison) + " ==> " + target.Hp);
       Console.WriteLine();
     }
 

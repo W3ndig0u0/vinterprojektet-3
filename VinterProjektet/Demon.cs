@@ -11,18 +11,5 @@ namespace VinterProjektet
       Name = name;
       BaseStrength = baseStrength;
     }
-
-    // !Ha en random nummer och bereonde på den samt fiende, välj en unik attack
-    public override void enemyAi()
-    {
-
-    }
-
-    void flee()
-    {
-
-      // !Springer från fienden
-    }
-
   }
 }

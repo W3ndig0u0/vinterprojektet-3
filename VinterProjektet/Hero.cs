@@ -12,6 +12,14 @@ namespace VinterProjektet
       BaseStrength = baseStrength;
     }
 
+    protected int spAttackRecharge;
+    public int SpAttackRecharge
+    {
+      get { return spAttackRecharge; }
+      set { spAttackRecharge = value; }
+    }
+
+
     protected int level;
     public int Level
     {
@@ -54,7 +62,8 @@ namespace VinterProjektet
       }
     }
 
-    public void levelUp()
+    // ?Vad som händer när spelaren levlas upp
+    public void LevelUp()
     {
       level++;
       levelExp = 0;
@@ -69,15 +78,25 @@ namespace VinterProjektet
       Console.WriteLine("Hp: " + (Hp - 5) + " ==> " + Hp);
     }
 
-    void AntiDemonAttack()
+    // ?Visar spelarens lv och baseStrength
+    public void CheckStatsHero(Hero c)
     {
-      // !Om fiende är en Demon så finns det en chans att du skadar dubbelt
-      // !Måste recharga denna för att använda den
+      Console.WriteLine(c.Name + "is Level: " + c.Level);
+      Console.WriteLine(c.Name + " BaseStrength: " + BaseStrength);
     }
 
-    void Blessed()
+
+    public void AntiDemonAttack(Character target)
     {
-      // !Om fiende är en Demonking så finns det en chans att du överlever en dödlig attack
+      // !Om fiende är en DemonLord ökar din strength med 3
+      if (target is DemonLord)
+      {
+        Console.Clear();
+        Console.WriteLine("Your opponent is a DemonLord, and such you felt a special power within you.");
+        Console.WriteLine();
+        Console.WriteLine("BaseStrength: " + (BaseStrength) + " ==> " + BaseStrength * 3);
+        BaseStrength *= 3;
+      }
     }
 
   }

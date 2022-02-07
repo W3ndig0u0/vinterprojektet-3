@@ -6,7 +6,7 @@ namespace VinterProjektet
   public class InventoryMenu
   {
     // ?Karaktär instansen kommer från Gameplay
-    public void InventoryListShow(Character player, Character enemy)
+    public void InventoryListShow(Hero player, Character enemy)
     {
       player.GetInventoryLength();
 
@@ -16,13 +16,27 @@ namespace VinterProjektet
       List<string> menuOptions = new List<string>();
       MenuFunction menu = new MenuFunction(promt, menuOptions);
 
-      // ?Få tillbaka vad SelectedIndex är
-      // !Inventory items skrivs ned genom menu run, fixar detta senare :)
-      menu.Run(2, player, enemy);
-
+      player.ShowInventory();
+      if (player.GetInventoryLength() <= 0)
+      {
+        Console.WriteLine($"While you were looking in your inventory, the enemy tried to attack you");
+        Console.WriteLine($"Press any button to continue.");
+        Console.ReadLine();
+        return;
+      }
       Console.WriteLine("Choose the number of Item");
-      // !Fixa så att använderen inte crashar hela systemet
-      int selectedIndex = int.Parse(Console.ReadLine());
+
+      // !Fixa så att använderen har den andra menyn...
+      string selectedIndexString = Console.ReadLine();
+      int selectedIndex;
+
+      while (!int.TryParse(selectedIndexString, out selectedIndex))       // Koden gör att den inte krashar om anvädaren inte följer instruktionerna.
+      {
+        Console.WriteLine();
+        Console.WriteLine("Error, try again");
+
+        selectedIndexString = Console.ReadLine();
+      }
 
       // ?Parameterna innehåller vilken itemIndex spelaren valde
       InventoryQuestion(player, selectedIndex, enemy);
@@ -36,12 +50,12 @@ namespace VinterProjektet
     }
 
     // ?Parameterna innehåller vilken itemIndex spelaren valde
-    public void InventoryQuestion(Character player, int itemListIndex, Character enemy)
+    public void InventoryQuestion(Hero player, int itemListIndex, Character enemy)
     {
       string promt = "What do you want to do with? " + player.GetInventoryName(itemListIndex) + "@";
       promt = promt.Replace("@", System.Environment.NewLine);
 
-      List<string> menuOptions = new List<string>() { "Use the " + player.GetInventoryName(itemListIndex), "More Info about the " + player.GetInventoryName(itemListIndex), "Throw away the " + player.GetInventoryName(itemListIndex), "Go Back to the Game" };
+      List<string> menuOptions = new List<string>() { "Use the " + player.GetInventoryName(itemListIndex), "More Info about the " + player.GetInventoryName(itemListIndex), "Go Back to the Game" };
       MenuFunction menu = new MenuFunction(promt, menuOptions);
 
       // ?Få tillbaka vad SelectedIndex är
@@ -53,9 +67,16 @@ namespace VinterProjektet
       {
         case 0:
           Console.WriteLine($"Using the " + player.GetInventoryName(itemListIndex));
-          // !Fråga användaren vem som ska anvnda itemet.
+          // !Fråga användaren vem som ska använda itemet.
           // Console.WriteLine("Who do you want to use it on?");
           player.UseItem(itemListIndex, player);
+          player.RemoveFromInventory(itemListIndex);
+
+          Console.WriteLine($"Press any button to continue.");
+          Console.ReadLine();
+          Console.Clear();
+          Console.WriteLine($"While you were looking in your inventory, the enemy tried to attack you");
+          Console.WriteLine($"Press any button to continue.");
           Console.ReadLine();
           break;
 
@@ -74,20 +95,6 @@ namespace VinterProjektet
           break;
 
         case 2:
-          Console.Clear();
-          Console.WriteLine($"Throwing away a " + player.GetInventoryName(itemListIndex));
-          player.RemoveFromInventory(itemListIndex);
-
-          Console.WriteLine($"Press any button to continue.");
-          Console.ReadLine();
-          Console.Clear();
-
-          Console.WriteLine($"While you were looking in your inventory, the enemy tried to attack you");
-          Console.WriteLine($"Press any button to continue.");
-          Console.ReadLine();
-          break;
-
-        case 3:
           Console.WriteLine($"While you were looking in your inventory, the enemy tried to attack you");
           break;
 

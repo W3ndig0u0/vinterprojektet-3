@@ -18,8 +18,9 @@ namespace VinterProjektet
     // ?returnerar baserat på listan
     public void ShowInventory()
     {
-      if (inventoryList == null)
+      if (inventoryList.Count <= 0)
       {
+        //! Den funkar inte fixa nu
         Console.WriteLine("You do not have any items...");
       }
 
@@ -29,7 +30,7 @@ namespace VinterProjektet
         {
           // !Istället för att skriva ned alla för vajre rad
           // !Klumpa ihop flera ifall de e samma typ, och sen skriv x antal
-          Console.WriteLine(i + "The " + inventoryList[i].Name);
+          Console.WriteLine(i + ": The " + inventoryList[i].Name);
         }
       }
     }

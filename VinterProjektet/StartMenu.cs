@@ -6,8 +6,8 @@ namespace VinterProjektet
   public class StartMenu
   {
     // !fixar detta senare...
-    Hero hero = new Hero(100, 100, "Player", 10);
-    Demon enemy = new Demon(20, 20, "Lesser Demon", 10);
+    Hero hero = new Hero(50, 50, "Player", 10);
+    Demon enemy = new Demon(30, 30, "Lesser Demon", 5);
 
     public void Start()
     {

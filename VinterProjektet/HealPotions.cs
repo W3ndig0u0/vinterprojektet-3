@@ -15,10 +15,11 @@ namespace VinterProjektet
     {
       Random rand = new Random();
       int healing;
-      healing = rand.Next(100, 150);
+      healing = rand.Next(20, 50);
       target.Hp += healing;
       Console.WriteLine("The " + target.Name + " uses a Potion!");
       Console.WriteLine("The " + target.Name + " heals himself for " + healing + " Points");
+      Console.WriteLine("Hp: " + (target.Hp - healing) + " ==> " + target.Hp);
       Console.WriteLine();
     }
 

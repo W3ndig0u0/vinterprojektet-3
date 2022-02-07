@@ -75,6 +75,7 @@ namespace VinterProjektet
       inventory.Remove(n);
     }
 
+    // ?Använder Itemet 
     public void UseItem(int n, Character target)
     {
       inventory.UseItem(n, target);
@@ -110,9 +111,18 @@ namespace VinterProjektet
       Strength += baseStrength;
     }
 
+    void HpCheck()
+    {
+      if (Hp > MaxHp)
+      {
+        Hp = MaxHp;
+      }
+    }
+
     // ?Hp bar
     public void HpBar()
     {
+      HpCheck();
       Console.WriteLine(this.Name + "Health: ");
       Console.Write("[");
 
@@ -147,10 +157,10 @@ namespace VinterProjektet
       Console.WriteLine("] (" + Hp + "/" + MaxHp + ")");
     }
 
-    // !Ha en random nummer och bereonde på den samt fiende, välj en unik attack
-    public virtual void enemyAi()
+    // ?Så att Heros Checkstats kan skriva över och ha level
+    public void CheckStats(Character c)
     {
-
+      Console.WriteLine(c.Name + " BaseStrength: " + BaseStrength);
     }
 
     // ?Attacking
