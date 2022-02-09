@@ -1,0 +1,12 @@
+@startuml Classdiagram
+skinparam ClassAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+abstract class Item {
+    + {abstract} Use(target:Character) : void
+    + Name : string <<get>> <<set>>
+    + Level : int <<get>> <<set>>
+    + Item(name:string, level:int)
+    + <<virtual>> GetInfo() : void
+}
+@enduml

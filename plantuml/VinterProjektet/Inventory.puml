@@ -1,0 +1,19 @@
+@startuml Classdiagram
+skinparam ClassAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+
+class Inventory {
+    + GetInventoryList() : List<Item>
+    + ShowInventory() : void
+    + Add(item:Item) : void
+    + Remove(n:int) : void
+    + GetItemInfo(n:int) : void
+    + GetInventoryName(n:int) : string
+    + UseItem(n:int, target:Character) : void
+    + GetLength() : int
+}
+class "List`1"<T> {
+}
+Inventory o-> "inventoryList<Item>" "List`1"
+@enduml

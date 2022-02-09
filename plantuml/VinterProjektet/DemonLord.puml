@@ -1,0 +1,16 @@
+@startuml Classdiagram
+skinparam ClassAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+@startuml
+class DemonLord {
+    + DemonLord(maxHp:int, hp:int, name:string, baseStrength:int)
+    + enemyAi() : void
+    + <<override>> Attack(target:Character) : void
+    DemonMode() : void
+    DeadlyAttack() : void
+    HealAttack() : void
+    gameWon() : void
+}
+Character <|-- DemonLord
+@enduml

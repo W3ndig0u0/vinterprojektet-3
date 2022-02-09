@@ -1,0 +1,27 @@
+@startuml Classdiagram
+skinparam ClassAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+class Character {
+    + Hp : int <<get>> <<set>>
+    + MaxHp : int <<get>> <<set>>
+    + Name : string <<get>> <<set>>
+    + Strength : int <<get>> <<set>>
+    + BaseStrength : int <<get>> <<set>>
+    + Character(maxHp:int, hp:int, name:string, baseStrength:int)
+    + Inventory() : void
+    + ShowInventory() : void
+    + AddToInventory(item:Item) : void
+    + RemoveFromInventory(n:int) : void
+    + UseItem(n:int, target:Character) : void
+    + UseItem(n:int) : void
+    + GetItemInfo(n:int) : void
+    + GetInventoryLength() : int
+    + GetInventoryName(itemListIndex:int) : string
+    + GetAttack(baseStrength:int) : void
+    HpCheck() : void
+    + HpBar() : void
+    + CheckStats(c:Character) : void
+    + <<virtual>> Attack(target:Character) : void
+}
+@enduml

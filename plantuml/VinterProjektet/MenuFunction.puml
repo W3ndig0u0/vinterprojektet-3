@@ -1,0 +1,16 @@
+@startuml@startuml Classdiagram
+skinparam ClassAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+class MenuFunction {
+    SelectedIndex : int
+    Promt : string
+    + MenuFunction(promt:string, menuOptions:List<string>)
+    DisplayOptions(n:int, hero:Hero, enemy:Character) : void
+    menuOptions() : void
+    + Run(n:int, hero:Hero, enemy:Character) : int
+}
+class "List`1"<T> {
+}
+MenuFunction o-> "MenuOptions<string>" "List`1"
+@enduml

@@ -1,0 +1,10 @@
+@startuml Classdiagram
+skinparam ClassAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+
+class InventoryMenu {
+    + InventoryListShow(player:Hero, enemy:Character) : void
+    + InventoryQuestion(player:Hero, itemListIndex:int, enemy:Character) : void
+}
+@enduml

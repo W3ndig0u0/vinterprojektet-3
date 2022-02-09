@@ -1,0 +1,22 @@
+@startuml Classdiagram
+skinparam ClassAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+
+!include ./VinterProjektet/HealPotions.puml
+!include ./VinterProjektet/DemonLord.puml
+!include ./VinterProjektet/MenuFunction.puml
+!include ./VinterProjektet/Demon.puml
+!include ./VinterProjektet/StartMenu.puml
+!include ./VinterProjektet/PoisonPotion.puml
+!include ./VinterProjektet/Weapons.puml
+!include ./VinterProjektet/Hero.puml
+!include ./VinterProjektet/Item.puml
+!include ./VinterProjektet/Inventory.puml
+!include ./VinterProjektet/GamePlay.puml
+!include ./VinterProjektet/InventoryMenu.puml
+!include ./VinterProjektet/Character.puml
+!include ./VinterProjektet/Program.puml
+!include ./VinterProjektet/obj/Debug/net5.0/.NETCoreApp,Version=v5.0.AssemblyAttributes.puml
+!include ./VinterProjektet/obj/Debug/net5.0/VinterProjektet.AssemblyInfo.puml
+@enduml

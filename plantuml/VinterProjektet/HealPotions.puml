@@ -1,0 +1,12 @@
+@startuml Classdiagram
+skinparam ClassAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+
+class HealPotions {
+    + HealPotions(name:string, level:int)
+    + <<override>> Use(target:Character) : void
+    + <<override>> GetInfo() : void
+}
+Item <|-- HealPotions
+@enduml

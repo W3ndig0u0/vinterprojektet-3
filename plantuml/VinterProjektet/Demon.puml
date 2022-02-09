@@ -1,0 +1,9 @@
+@startuml Classdiagram
+skinparam ClassAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+class Demon {
+    + Demon(maxHp:int, hp:int, name:string, baseStrength:int)
+}
+Character <|-- Demon
+@enduml

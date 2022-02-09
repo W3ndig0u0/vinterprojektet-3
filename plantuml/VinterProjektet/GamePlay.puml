@@ -1,0 +1,20 @@
+@startuml Classdiagram
+skinparam ClassAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+
+class GamePlay {
+    DisplayChoices(enemy:Character) : void
+    + Game(enemy:Character) : void
+    Reward() : void
+    RandomEnemy() : Character
+    expPlayer(player:Hero) : void
+    CheckDeath() : void
+}
+GamePlay o-> "hero" Hero
+GamePlay o-> "enemy" Demon
+GamePlay o-> "demonKing" DemonLord
+GamePlay o-> "healPotions" HealPotions
+GamePlay o-> "poisonPotion" PoisonPotion
+GamePlay o-> "sword" Weapons
+@enduml

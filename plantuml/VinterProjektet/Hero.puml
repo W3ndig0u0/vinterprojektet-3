@@ -1,0 +1,18 @@
+@startuml Classdiagram
+skinparam ClassAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+
+class Hero {
+    + Hero(maxHp:int, hp:int, name:string, baseStrength:int)
+    + SpAttackRecharge : int <<get>> <<set>>
+    + Level : int <<get>> <<set>>
+    + LevelExp : int <<get>> <<set>>
+    + LevelExpCap : int <<get>> <<set>>
+    + Defend(target:Character) : void
+    + LevelUp() : void
+    + CheckStatsHero(c:Hero) : void
+    + AntiDemonAttack(target:Character) : void
+}
+Character <|-- Hero
+@enduml

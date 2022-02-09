@@ -1,0 +1,11 @@
+@startuml Classdiagram
+skinparam ClassAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+class Weapons {
+    + Weapons(name:string, level:int)
+    + <<override>> Use(target:Character) : void
+    + <<override>> GetInfo() : void
+}
+Item <|-- Weapons
+@enduml
