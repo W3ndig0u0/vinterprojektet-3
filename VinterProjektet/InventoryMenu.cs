@@ -14,7 +14,11 @@ namespace VinterProjektet
       promt = promt.Replace("@", System.Environment.NewLine);
 
       List<string> menuOptions = new List<string>();
+      Queue<string> queue = new Queue<string>();
+      HashSet<int> hashSet = new HashSet<int>();
+
       MenuFunction menu = new MenuFunction(promt, menuOptions);
+
 
       player.ShowInventory();
       if (player.GetInventoryLength() <= 0)

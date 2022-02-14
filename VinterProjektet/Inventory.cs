@@ -10,6 +10,7 @@ namespace VinterProjektet
 
     List<Item> inventoryList = new List<Item>();
 
+
     public List<Item> GetInventoryList()
     {
       return inventoryList;
